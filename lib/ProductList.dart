@@ -86,17 +86,21 @@ class _MyProductsState extends State<MyProducts> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("${snap.data![index].id}"),
-                                  Text(snap.data![index].title),
-                                  Wrap(
-                                      spacing:
-                                          8.0, // Horizontal space between chips
-                                      runSpacing:
-                                          4.0, // Vertical space between lines
-                                      children: snap.data![index].tags
-                                          .map<Widget>((tag) {
-                                        return Text(tag);
-                                      }).toList()),
+                                  ListTile(
+                                    title: Text(snap.data![index].title),
+                                    leading: CircleAvatar(
+                                        backgroundImage: NetworkImage(
+                                            snap.data![index].images[0])),
+                                    subtitle: Wrap(
+                                        spacing:
+                                            8.0, // Horizontal space between chips
+                                        runSpacing:
+                                            4.0, // Vertical space between lines
+                                        children: snap.data![index].tags
+                                            .map<Widget>((tag) {
+                                          return Text(tag);
+                                        }).toList()),
+                                  ),
                                   Text(snap.data![index].reviews[0].comment)
                                 ],
                               ),
