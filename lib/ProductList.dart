@@ -96,7 +96,8 @@ class _MyProductsState extends State<MyProducts> {
                                       children: snap.data![index].tags
                                           .map<Widget>((tag) {
                                         return Text(tag);
-                                      }).toList())
+                                      }).toList()),
+                                  Text(snap.data![index].reviews[0].comment)
                                 ],
                               ),
                             ),
